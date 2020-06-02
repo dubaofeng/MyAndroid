@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".springanimation.SpringAnimationActivity">
+
+    <ImageView
+            android:id="@+id/testSpringAnimationImgv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/testSpringAnimationImgv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/testSpringAnimationImgv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="阻尼系数"
+            app:layout_constraintBottom_toTopOf="@+id/bouncyRg"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+            android:id="@+id/bouncyRg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/stiffnessTex"
+            app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+                android:id="@+id/bouncyrb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="HIGH" />
+
+        <RadioButton
+                android:id="@+id/bouncyrb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="MEDIUM" />
+
+        <RadioButton
+                android:id="@+id/bouncyrb3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LOW" />
+
+        <RadioButton
+                android:id="@+id/bouncyrb4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="NO" />
+
+    </RadioGroup>
+
+    <TextView
+            android:id="@+id/stiffnessTex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="刚度"
+            app:layout_constraintBottom_toTopOf="@+id/stiffnessRg"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+            android:id="@+id/stiffnessRg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+                android:id="@+id/stiffnessrb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="HIGH" />
+
+        <RadioButton
+                android:id="@+id/stiffnessrb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="MEDIUM" />
+
+        <RadioButton
+                android:id="@+id/stiffnessrb3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="LOW" />
+
+        <RadioButton
+                android:id="@+id/stiffnessrb4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="VERY_LOW" />
+
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

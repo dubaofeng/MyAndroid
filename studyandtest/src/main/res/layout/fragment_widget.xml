@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:context=".mywidget.WidgetFragment">
+
+    <com.dbf.studyandtest.mywidget.WearableRecyclerView
+            android:id="@+id/smallRv"
+            android:layout_width="700px"
+            android:layout_height="700px"
+            android:background="@color/colorPrimary"
+            android:visibility="invisible" />
+
+    <com.dbf.studyandtest.mywidget.WearableRecyclerView
+            android:id="@+id/bigRv"
+            android:layout_width="700px"
+            android:layout_height="700px"
+            android:background="@color/colorAccent"
+            android:visibility="visible" />
+
+    <ImageView
+            android:id="@+id/aniImageView"
+            android:layout_width="700px"
+            android:layout_height="700px"
+            android:visibility="invisible"></ImageView>
+</RelativeLayout>

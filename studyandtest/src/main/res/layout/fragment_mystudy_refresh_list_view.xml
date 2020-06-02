@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.dbf.studyandtest.testrefreshlistview.MyStudyRefreshListViewFragment">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MyStudyRefreshListViewFragment" />
+    <com.dbf.common.refreshlistview.MyStudyRefreshListView
+            android:id="@+id/mystudy_refreshListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"></com.dbf.common.refreshlistview.MyStudyRefreshListView>
+
+</FrameLayout>

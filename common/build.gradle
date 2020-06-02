@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion android_config.compileSdkVersion
+    buildToolsVersion android_config.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion android_config.minSdkVersion
+        targetSdkVersion android_config.targetSdkVersion
+        versionCode android_config.versionCode
+        versionName android_config.versionName
+        testInstrumentationRunner android_config.testInstrumentationRunner
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+        // 这个方法接收三个非空的参数，第一个：确定值的类型，第二个：指定key的名字，第三个：传值（必须是String）
+        // 为什么需要定义这个？因为src代码中有可能需要用到跨模块交互，如果是组件化模块显然不行
+        // 切记：不能在android根节点，只能在defaultConfig或buildTypes节点下
+        buildConfigField("boolean", "isRelease", String.valueOf(isRelease))
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation dependencies_config.appcompat
+    implementation dependencies_config.corektx
+    implementation dependencies_config.constraintlayout
+    testImplementation dependencies_config.test_ext_junit
+    androidTestImplementation dependencies_config.test_ext_junit
+    androidTestImplementation dependencies_config.test_runner
+    androidTestImplementation dependencies_config.test_espresso_core
+    implementation 'com.google.code.gson:gson:2.8.6'
+}

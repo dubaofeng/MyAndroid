@@ -1,0 +1,9 @@
+println("dbf__settings.gradle")
+//include ':app'
+//include ':mine'
+//include ':homepage'
+include ':common'
+include ':studyandtest'
+//include ':javastudy'
+//include ':dagger2_mvp'
+//include ':myqmui'

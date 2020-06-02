@@ -1,0 +1,136 @@
+println("dbf__app.gradle")
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+def ext = rootProject.ext
+def android_config = ext.android_config
+def url_config = rootProject.ext.url_config
+def dependencies_config = rootProject.ext.dependencies_config
+def isRelease = rootProject.ext.isRelease
+android {
+    compileSdkVersion android_config.compileSdkVersion
+    buildToolsVersion android_config.buildToolsVersion
+    defaultConfig {
+        applicationId app_id.app
+        minSdkVersion android_config.minSdkVersion
+        targetSdkVersion android_config.targetSdkVersion
+        versionCode android_config.versionCode
+        versionName android_config.versionName
+        testInstrumentationRunner android_config.testInstrumentationRunner
+        // 这个方法接收三个非空的参数，第一个：确定值的类型，第二个：指定key的名字，第三个：传值（必须是String）
+        // 为什么需要定义这个？因为src代码中有可能需要用到跨模块交互，如果是组件化模块显然不行
+        // 切记：不能在android根节点，只能在defaultConfig或buildTypes节点下
+        buildConfigField("boolean", "isRelease", String.valueOf(isRelease))
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField 'String', 'API_BASE_URL', "\"${url_config.debug}\""
+        }
+        release {
+            buildConfigField 'String', 'API_BASE_URL', "\"${url_config.release}\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions 'wanandroid'
+    productFlavors {
+        enjoy {
+            dimension = 'wanandroid'
+            buildConfigField 'String', 'API_BASE_URL', '"https://www.wanandroid.com/"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+dependencies {
+    if (isRelease) {
+        //集成化
+        implementation project(":homepage")
+    } else {
+        //组件化
+
+    }
+    implementation project(":common")
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation dependencies_config.appcompat
+    implementation dependencies_config.corektx
+    implementation dependencies_config.constraintlayout
+
+
+    implementation dependencies_config.lifecycle_exten_sions
+    implementation 'androidx.annotation:annotation:1.1.0'
+//更简化的写法
+//    dependencies_config.each{
+//        k,v-> implementation v
+//    }
+
+    implementation dependencies_config.androidx_viewpager2
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.7.2"
+    implementation "com.squareup.retrofit2:converter-gson:2.7.2"//Gosn解析转换器，自动将json字符串解析转换对应的bean
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+//跟踪到一个网络请求的所有状态，包括请求头、请求体、响应行、 响应体
+    implementation "com.squareup.retrofit2:converter-scalars:2.7.2"
+//如果需要既支持String又支持Gson需要先设置ScalarsConverterFactory 后设置 GsonConverterFactory
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.7.2"
+
+    //gson
+    implementation "com.google.code.gson:gson:2.8.2"
+
+    //rxjava2
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    //rxlifecycle2  根据activity或fragment生命周期注销rxjava防止内存泄漏
+    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.1'
+    implementation "com.trello.rxlifecycle2:rxlifecycle-components:2.2.1"
+    //rxlifecycle2 kotlin支持
+    implementation "com.trello.rxlifecycle2:rxlifecycle-kotlin:2.2.1"
+
+    //添加lifecycle
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    // Saved state module for ViewModel 保存View ViewModel的状态
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+    // Annotation processor 注解处理器
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    // optional - ReactiveStreams support for LiveData
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"
+}
+// 源集 - 设置源集的属性，更改源集的 Java 目录或者自由目录等
+// 注意：我们先加入进来，后续在学习哦
+//sourceSets {
+//    main {
+//        if (!isRelease) {
+//            // 如果是组件化模式，需要单独运行时
+//            manifest.srcFile 'src/main/AndroidManifest.xml'
+//            java.srcDirs = ['src/main/java']
+//            res.srcDirs = ['src/main/res']
+//            resources.srcDirs = ['src/main/resources']
+//            aidl.srcDirs = ['src/main/aidl']
+//            assets.srcDirs = ['src/main/assets']
+//        } else {
+//            // 集成化模式，整个项目打包
+//            manifest.srcFile 'src/main/AndroidManifest.xml'
+//        }
+//    }
+//}
+

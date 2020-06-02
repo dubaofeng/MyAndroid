@@ -1,0 +1,71 @@
+def android_config = rootProject.ext.android_config
+def url_config = rootProject.ext.url_config
+def dependencies_config = rootProject.ext.dependencies_config
+def isRelease = rootProject.ext.isRelease
+if (isRelease) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion android_config.compileSdkVersion
+    buildToolsVersion android_config.buildToolsVersion
+
+    defaultConfig {
+        if (isRelease) {
+        } else {
+            applicationId app_id.homepage
+        }
+        minSdkVersion android_config.minSdkVersion
+        targetSdkVersion android_config.targetSdkVersion
+        versionCode android_config.versionCode
+        versionName android_config.versionName
+        testInstrumentationRunner android_config.testInstrumentationRunner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            if (isRelease) {
+                manifest.srcFile "src/main/AndroidManifest.xml"
+                java {
+                    exclude '**/debug/**'
+                }//集成化时排除java目录下debug中的调试java文件
+//                kt {//崩溃
+//                    exclude '**/debug/**'
+//                }
+            } else {
+                manifest.srcFile "src/main/debug/AndroidManifest.xml"
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation dependencies_config.appcompat
+    implementation dependencies_config.corektx
+    implementation dependencies_config.constraintlayout
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation dependencies_config.junit
+    androidTestImplementation dependencies_config.test_runner
+    androidTestImplementation dependencies_config.test_espresso_core
+}

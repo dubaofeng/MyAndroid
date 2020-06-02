@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".StudyAndTestMainActivity">
+
+    <Button
+            android:id="@+id/refreshListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="refreshListView"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+            android:id="@+id/springAnimation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="springAnimation"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/refreshListView" />
+
+    <Button
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="recyclerView"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/springAnimation" />
+
+    <Button
+            android:id="@+id/testMetaData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="testMetaData"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <Button
+            android:id="@+id/testClass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="testClass"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testMetaData" />
+
+    <Button
+            android:id="@+id/testWidget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="testWidget"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testClass" />
+
+    <Button
+            android:id="@+id/testAidl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="testAidl"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testWidget" />
+
+    <Button
+            android:id="@+id/testIPC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="testIPC"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testAidl" />
+</androidx.constraintlayout.widget.ConstraintLayout>

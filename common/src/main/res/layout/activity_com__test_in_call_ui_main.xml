@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Com_TestInCallUiMainActivity">
+
+    <com.dbf.common.incallui.GlowPadWrapper xmlns:dc="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/glow_pad_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/black"
+            android:focusable="true"
+            android:gravity="center"
+            android:visibility="visible"
+
+            dc:allowScaling="true"
+            dc:directionDescriptions="@array/incoming_call_widget_3way_direction_descriptions"
+            dc:feedbackCount="1"
+            dc:glowRadius="75dip"
+            dc:handleDrawable="@drawable/ic_in_call_touch_handle"
+            dc:innerRadius="15dip"
+            dc:layout_constraintStart_toStartOf="parent"
+            dc:layout_constraintTop_toTopOf="parent"
+            dc:outerRadius="135dip"
+            dc:outerRingDrawable="@drawable/ic_lockscreen_outerring"
+            dc:pointDrawable="@mipmap/ic_lockscreen_glowdot"
+            dc:snapMargin="40dip"
+            dc:targetDescriptions="@array/incoming_call_widget_3way_target_descriptions"
+            dc:targetDrawables="@array/incoming_call_widget_3way_targets"
+            dc:vibrationDuration="20" />
+</androidx.constraintlayout.widget.ConstraintLayout>

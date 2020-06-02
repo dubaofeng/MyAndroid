@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.dbf.studyandtest">
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".myaidl.location.TestIPCActivity"></activity>
+
+        <service
+                android:name="com.dbf.common.ipc.IPCService$IPCService0"
+                android:enabled="true"
+                android:exported="true"
+                android:process=":gps" />
+        <service
+                android:name=".myaidl.location.GpsService"
+                android:enabled="true"
+                android:exported="true"
+                android:process=":gps" />
+
+        <activity android:name=".myaidl.BinderAidlServiceActivity" />
+
+        <service
+                android:name=".myaidl.MyAidlService"
+                android:enabled="true"
+                android:exported="true"
+                android:process=":aidl" />
+
+        <activity android:name=".myaidl.MyTestAidlMainActivity" />
+        <activity android:name=".mywidget.WidgetMainActivity" />
+        <activity android:name=".qmui.QmuiMainActivity" />
+        <activity android:name=".javastudy.classtest.TestClass2Activity" />
+        <activity android:name=".javastudy.classtest.TestClass1Activity" />
+        <activity android:name=".TestMetaDataActivity">
+            <meta-data
+                    android:name="Test1"
+                    android:resource="@string/description_target_send_sms" />
+            <meta-data
+                    android:name="Test2"
+                    android:value="@string/description_target_send_sms" />
+        </activity>
+        <activity
+                android:name=".javastudy.JavaStudyMainActivity"
+                android:label="JavaStudyMainActivity"
+                android:screenOrientation="sensor">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".myrecyclerview.RecyclerViewActivity" />
+        <activity android:name=".springanimation.SpringAnimationActivity" />
+        <activity android:name=".StudyAndTestMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".testrefreshlistview.TestRefreshListViewActivity" />
+    </application>
+
+</manifest>
