@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.dbf.common.myutils.MyLog
 import com.dbf.studyandtest.javastudy.classtest.TestClass2Activity
 import com.dbf.studyandtest.myaidl.MyTestAidlMainActivity
 import com.dbf.studyandtest.myaidl.location.TestIPCActivity
@@ -12,6 +11,7 @@ import com.dbf.studyandtest.myglide.TestGlideActivity
 import com.dbf.studyandtest.myrecyclerview.RecyclerViewActivity
 import com.dbf.studyandtest.mywidget.WidgetMainActivity
 import com.dbf.studyandtest.springanimation.SpringAnimationActivity
+import com.dbf.studyandtest.testpermissionx.TestPermissionActivity
 import com.dbf.studyandtest.testrefreshlistview.TestRefreshListViewActivity
 
 class StudyAndTestMainActivity : AppCompatActivity() {
@@ -51,6 +51,9 @@ class StudyAndTestMainActivity : AppCompatActivity() {
             }
             R.id.testGlide -> {
                 intent.setClass(this, TestGlideActivity::class.java)
+            }
+            R.id.testPermiss -> {
+                intent.setClass(this, TestPermissionActivity::class.java)
             }
             else -> {
             }

@@ -3,6 +3,10 @@
         package="com.dbf.studyandtest">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -10,7 +14,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".testpermissionx.TestPermissiionActivity"></activity>
+        <activity android:name=".testpermissionx.TestPermissionActivity"></activity>
         <activity android:name=".myglide.TestActivity" />
         <activity android:name=".myglide.TestGlideActivity" />
         <activity android:name=".myaidl.location.TestIPCActivity" />

@@ -95,4 +95,14 @@
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/testIPC" />
+
+    <Button
+            android:id="@+id/testPermiss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="testPermiss"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testGlide" />
 </androidx.constraintlayout.widget.ConstraintLayout>
