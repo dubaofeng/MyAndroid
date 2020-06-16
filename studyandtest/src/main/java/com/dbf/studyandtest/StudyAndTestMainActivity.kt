@@ -8,6 +8,7 @@ import com.dbf.common.myutils.MyLog
 import com.dbf.studyandtest.javastudy.classtest.TestClass2Activity
 import com.dbf.studyandtest.myaidl.MyTestAidlMainActivity
 import com.dbf.studyandtest.myaidl.location.TestIPCActivity
+import com.dbf.studyandtest.myglide.TestGlideActivity
 import com.dbf.studyandtest.myrecyclerview.RecyclerViewActivity
 import com.dbf.studyandtest.mywidget.WidgetMainActivity
 import com.dbf.studyandtest.springanimation.SpringAnimationActivity
@@ -22,49 +23,38 @@ class StudyAndTestMainActivity : AppCompatActivity() {
     }
 
     fun clickButton(view: View) {
+        var intent = Intent()
         when (view.id) {
             R.id.refreshListView -> {
-                var intent: Intent = Intent()
                 intent.setClass(this, TestRefreshListViewActivity::class.java)
-                startActivity(intent)
             }
             R.id.springAnimation -> {
-                var intent: Intent = Intent()
                 intent.setClass(this, SpringAnimationActivity::class.java)
-                startActivity(intent)
             }
             R.id.recyclerView -> {
-                var intent: Intent = Intent()
                 intent.setClass(this, RecyclerViewActivity::class.java)
-                startActivity(intent)
             }
             R.id.testMetaData -> {
-                var intent: Intent = Intent()
                 intent.setClass(this, TestMetaDataActivity::class.java)
-                startActivity(intent)
             }
             R.id.testClass -> {
-                var intent: Intent = Intent()
                 intent.setClass(this, TestClass2Activity::class.java)
-                startActivity(intent)
             }
             R.id.testWidget -> {
-                var intent: Intent = Intent()
                 intent.setClass(this, WidgetMainActivity::class.java)
-                startActivity(intent)
             }
             R.id.testAidl -> {
-                var intent: Intent = Intent()
                 intent.setClass(this, MyTestAidlMainActivity::class.java)
-                startActivity(intent)
             }
             R.id.testIPC -> {
-                var intent: Intent = Intent()
                 intent.setClass(this, TestIPCActivity::class.java)
-                startActivity(intent)
+            }
+            R.id.testGlide -> {
+                intent.setClass(this, TestGlideActivity::class.java)
             }
             else -> {
             }
         }
+        startActivity(intent)
     }
 }

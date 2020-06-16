@@ -85,4 +85,14 @@
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/testAidl" />
+
+    <Button
+            android:id="@+id/testGlide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton"
+            android:text="testGlide"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/testIPC" />
 </androidx.constraintlayout.widget.ConstraintLayout>

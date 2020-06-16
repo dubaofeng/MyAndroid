@@ -23,6 +23,7 @@ android {
     }
     viewBinding {
         enabled = true
+//     官方使用教程   https://developer.android.google.cn/topic/libraries/view-binding?hl=zh-cn
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -52,5 +53,7 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.27'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.27'
     implementation 'com.google.dagger:dagger-android:2.27'
+    implementation 'com.permissionx.guolindev:permissionx:1.1.1'
+
 
 }
