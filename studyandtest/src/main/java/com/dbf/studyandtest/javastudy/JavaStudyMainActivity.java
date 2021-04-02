@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.dbf.studyandtest.R;
 import com.dbf.studyandtest.javastudy.dagger2.Eat;
+import com.dbf.studyandtest.javastudy.proxy.ProxyMain;
 
 public class JavaStudyMainActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class JavaStudyMainActivity extends AppCompatActivity {
 //        new ReflectMian().main(new String[]{});
 //        new ProxyMain().main(new String[]{});
 //        new MyLambda().mian();
-        new Eat().eatFoot();
+//        new Eat().eatFoot();
     }
+
 }

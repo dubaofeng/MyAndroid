@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".eventdispatch.EventDispatchActivity">
+
+    <com.dbf.studyandtest.eventdispatch.EventLayout
+            android:layout_width="match_parent"
+            android:layout_height="1000px"
+            android:background="@color/colorPrimary"
+            android:gravity="top"
+            android:paddingTop="30dp">
+
+        <com.dbf.studyandtest.eventdispatch.EventView
+                android:layout_width="match_parent"
+                android:layout_height="500px"
+                android:background="@color/colorAccent" />
+
+    </com.dbf.studyandtest.eventdispatch.EventLayout>
+
+    <Button
+            android:id="@+id/lvInVpg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ListViewInViewpager"></Button>
+</LinearLayout>

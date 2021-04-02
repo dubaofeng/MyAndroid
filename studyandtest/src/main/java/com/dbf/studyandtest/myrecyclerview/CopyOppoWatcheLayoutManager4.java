@@ -461,7 +461,7 @@ public class CopyOppoWatcheLayoutManager4 extends RecyclerView.LayoutManager {
                 stringBuilder.append(" fh=").append(formatString(String.valueOf(prh), 4, " "));
                 stringBuilder.append(" sph=").append(formatString(String.valueOf(sph), 4, " "));
 
-                Log.i("DBFdebug", stringBuilder.toString());
+//                Log.i("DBFdebug", stringBuilder.toString());
                 int itemCenterY = (int) (y + py);
                 int itemCenterX = (int) (x + px);
                 int layoutYcenter = prh / 2;

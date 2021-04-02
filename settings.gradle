@@ -4,6 +4,6 @@ println("dbf__settings.gradle")
 //include ':homepage'
 include ':common'
 include ':studyandtest'
-//include ':javastudy'
+include ':javastudy'
 //include ':dagger2_mvp'
 //include ':myqmui'

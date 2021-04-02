@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.dbf.studyandtest">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
             android:allowBackup="true"
@@ -14,8 +16,39 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".testpermissionx.TestPermissionActivity"></activity>
-        <activity android:name=".myglide.TestActivity" />
+        <activity android:name=".storage.StorageMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".custom_view.ShowFrameAnimActivity" />
+        <activity android:name=".myretrofit.TestRetrofitActivity" />
+        <activity
+                android:name=".paging.PagingTestActivity"
+                android:launchMode="standard" />
+        <activity
+                android:name=".navigator.BottomNavigationActivity"
+                android:label="@string/title_activity_bottom_navigation" />
+        <activity android:name=".TestHandlerActivity" />
+        <activity android:name=".practice_service.NewActivity" />
+        <activity android:name=".practice_service.TestServiceActivity" />
+
+        <service
+                android:name=".practice_service.MyPracticeIntentService"
+                android:exported="false" />
+        <service
+                android:name=".practice_service.MyPracticeService"
+                android:enabled="true"
+                android:exported="true" />
+
+        <activity
+                android:name=".eventdispatch.exemple.EventConflictExempleActivity"
+                android:launchMode="singleInstance" />
+        <activity android:name=".eventdispatch.EventDispatchActivity" />
+        <activity android:name=".designmodel.TestDesignModelActivity" />
+        <activity android:name=".testpermissionx.TestPermissionActivity" />
         <activity android:name=".myglide.TestGlideActivity" />
         <activity android:name=".myaidl.location.TestIPCActivity" />
 
@@ -35,13 +68,14 @@
         <service
                 android:name=".myaidl.MyAidlService"
                 android:enabled="true"
-                android:exported="true"
-                android:process=":aidl" />
+                android:exported="true" />
 
         <activity android:name=".myaidl.MyTestAidlMainActivity" />
         <activity android:name=".mywidget.WidgetMainActivity" />
         <activity android:name=".qmui.QmuiMainActivity" />
-        <activity android:name=".javastudy.classtest.TestClass2Activity" />
+        <activity
+                android:name=".javastudy.classtest.TestClass2Activity"
+                android:taskAffinity="com.dbf.test" />
         <activity android:name=".javastudy.classtest.TestClass1Activity" />
         <activity android:name=".TestMetaDataActivity">
             <meta-data
@@ -66,13 +100,23 @@
         <activity android:name=".myrecyclerview.RecyclerViewActivity" />
         <activity android:name=".springanimation.SpringAnimationActivity" />
         <activity android:name=".StudyAndTestMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
         <activity android:name=".testrefreshlistview.TestRefreshListViewActivity" />
+
+        <provider
+                android:name="androidx.core.content.FileProvider"
+                android:authorities="com.dbf.studyandtest"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/photo_path" />
+        </provider>
     </application>
 
 </manifest>

@@ -31,16 +31,22 @@ android {
 }
 
 dependencies {
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+    api "com.squareup.retrofit2:retrofit:2.9.0"//注意找最新版本
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation dependencies_config.appcompat
     implementation dependencies_config.corektx
     implementation dependencies_config.constraintlayout
-    api 'com.github.bumptech.glide:glide:4.11.0'
-    api 'com.github.bumptech.glide:compiler:4.11.0'
+    api 'com.squareup.okhttp3:okhttp:4.9.0'
     testImplementation dependencies_config.test_ext_junit
     androidTestImplementation dependencies_config.test_ext_junit
     androidTestImplementation dependencies_config.test_runner
     androidTestImplementation dependencies_config.test_espresso_core
     api 'com.google.code.gson:gson:2.8.6'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    api 'top.zibin:Luban:1.1.8'
+    api 'com.github.yalantis:ucrop:2.2.6'//2.2.3
+
 
 }

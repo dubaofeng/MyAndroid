@@ -12,7 +12,7 @@ import java.util.List;
 
 public class MyAidlService extends Service {
     private ArrayList<Person> persons = new ArrayList<>();
-
+private final String TAG = MyAidlService.class.getCanonicalName();
     @Override
     public void onCreate() {
         super.onCreate();
@@ -31,6 +31,8 @@ public class MyAidlService extends Service {
         return new IMyAidlInterface.Stub() {
             @Override
             public void addPerson(Person person) throws RemoteException {
+                MyLog.INSTANCE.i(TAG, "服务端的person=" + person);
+                person.setAge(1);
                 persons.add(person);
             }
 

@@ -6,4 +6,25 @@
         android:layout_height="match_parent"
         tools:context=".TestMetaDataActivity">
 
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            tools:layout_editor_absoluteX="241dp"
+            tools:layout_editor_absoluteY="129dp">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cardview_dark_background"
+                android:orientation="vertical"
+                android:padding="10px">
+
+            <com.dbf.studyandtest.custom_view.MyPracticeCustomLayout
+                    android:id="@+id/test"
+                    android:layout_width="200px"
+                    android:layout_height="100px"
+                    android:background="@color/cardview_light_background"></com.dbf.studyandtest.custom_view.MyPracticeCustomLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

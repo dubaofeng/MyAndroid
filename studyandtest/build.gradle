@@ -29,7 +29,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+//加速构建
+    dexOptions {
+        incremental true //如果开启multi-dex, 此句无效
+        preDexLibraries true
+        javaMaxHeapSize "16g" //最主要是这句, 不过改成8g没有更显著的提升
+// jumboMode true
+// threadCount 8 //gradle输就输在了并行上, 都是串行, 增加线程数没鸟用
+// maxProcessCount 8 //com.android.tools.build:gradle:2.0.0
+    }
 }
 
 dependencies {
@@ -47,6 +55,9 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -54,6 +65,21 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-compiler:2.27'
     implementation 'com.google.dagger:dagger-android:2.27'
     implementation 'com.permissionx.guolindev:permissionx:1.1.1'
-
-
+    implementation "androidx.navigation:navigation-compose:1.0.0-alpha04"
+    //Navigation
+    def nav_version = "2.3.2"
+    // Java language implementation
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+    // Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    // Feature module Support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+    // Jetpack Compose Integration
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.github.bumptech.glide:annotations:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 }

@@ -2,6 +2,7 @@ package com.dbf.studyandtest.myrecyclerview;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,10 +18,18 @@ import com.dbf.studyandtest.R;
 public class RecyclerViewActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private final String TAG = "RecyclerViewActivity";
+    private static Object i = new Object();
+
+   static class Test {
+         Object obj = new Object();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        for (int j = 0; j < 10; j++) {
+            Log.i(TAG, "onCreate: i.hashCode()=" + i.hashCode() );
+        }
         hideBottomMenu();
         setContentView(R.layout.activity_recycler_view);
         recyclerView = findViewById(R.id.recyclerView);

@@ -11,11 +11,15 @@ public class Person implements Parcelable {
     private boolean sex;
     private int age;
 
+    public Person() {
+    }
+
     public Person(String name, boolean sex, int age) {
         this.name = name;
         this.sex = sex;
         this.age = age;
     }
+
 
     protected Person(Parcel in) {
         name = in.readString();
@@ -61,6 +65,15 @@ public class Person implements Parcelable {
 
 
     @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", sex=" + sex +
+                ", age=" + age +
+                '}';
+    }
+
+    @Override
     public int describeContents() {
         return 0;
     }
@@ -72,12 +85,9 @@ public class Person implements Parcelable {
         dest.writeInt(age);
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", sex=" + sex +
-                ", age=" + age +
-                '}';
+    public void readFromParcel(Parcel dest) {
+        name = dest.readString();
+        sex = dest.readInt() != 0;
+        age = dest.readInt();
     }
 }

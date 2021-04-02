@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".practice_service.TestServiceActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <Button
+                android:id="@+id/binService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="绑定服务"></Button>
+
+        <Button
+                android:id="@+id/unBinService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="解绑服务"></Button>
+
+        <Button
+                android:id="@+id/startService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="启动服务"></Button>
+
+        <Button
+                android:id="@+id/startNewActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="启动一个Activity"></Button>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

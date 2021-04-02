@@ -6,103 +6,193 @@
         android:layout_height="match_parent"
         tools:context=".StudyAndTestMainActivity">
 
-    <Button
-            android:id="@+id/refreshListView"
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="refreshListView"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-            android:id="@+id/springAnimation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="springAnimation"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/refreshListView" />
+        <Button
+                android:id="@+id/showFrameAnim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="showFrameAnim"
+                android:textAllCaps="false"
+                android:visibility="visible" />
 
-    <Button
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="recyclerView"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/springAnimation" />
+        <Button
+                android:id="@+id/testRetrofit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testRetrofit"
+                android:textAllCaps="false"
+                android:visibility="visible" />
 
-    <Button
-            android:id="@+id/testMetaData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="testMetaData"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        <Button
+                android:id="@+id/testNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testNavigation"
+                android:textAllCaps="false"
+                android:visibility="visible" />
 
-    <Button
-            android:id="@+id/testClass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="testClass"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testMetaData" />
+        <Button
+                android:id="@+id/testHandler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testHandler"
+                android:textAllCaps="false"
+                android:visibility="visible" />
 
-    <Button
-            android:id="@+id/testWidget"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="testWidget"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testClass" />
+        <Button
+                android:id="@+id/testService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testService"
+                android:textAllCaps="false"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-            android:id="@+id/testAidl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="testAidl"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testWidget" />
+        <Button
+                android:id="@+id/testJava"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testJava"
+                android:textAllCaps="false"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-            android:id="@+id/testIPC"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="testIPC"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testAidl" />
+        <Button
+                android:id="@+id/refreshListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="refreshListView"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/testJava" />
 
-    <Button
-            android:id="@+id/testGlide"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="testGlide"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testIPC" />
+        <Button
+                android:id="@+id/springAnimation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="springAnimation"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/refreshListView" />
 
-    <Button
-            android:id="@+id/testPermiss"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="clickButton"
-            android:text="testPermiss"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/testGlide" />
+        <Button
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="recyclerView"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/springAnimation" />
+
+        <Button
+                android:id="@+id/testMetaData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testMetaData"
+                android:textAllCaps="false"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+        <Button
+                android:id="@+id/testClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testClass"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/testMetaData" />
+
+        <Button
+                android:id="@+id/testWidget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testWidget"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/testClass" />
+
+        <Button
+                android:id="@+id/testAidl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testAidl"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/testWidget" />
+
+        <Button
+                android:id="@+id/testIPC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testIPC"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/testAidl" />
+
+        <Button
+                android:id="@+id/testGlide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testGlide"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/testIPC" />
+
+        <Button
+                android:id="@+id/testPermiss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testPermiss"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/testGlide" />
+
+        <Button
+                android:id="@+id/testJavaTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testJavaTest"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/testPermiss" />
+
+        <Button
+                android:id="@+id/testEventDispatch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="clickButton"
+                android:text="testEventDispatch"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/testJavaTest" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
