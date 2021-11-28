@@ -131,13 +131,13 @@ class SpringAnimationActivity : AppCompatActivity(), DynamicAnimation.OnAnimatio
                         R.id.stiffnessrb1 -> {
                             STIFFNESS = SpringForce.STIFFNESS_HIGH
                         }
-                        R.id.stiffnessrb1 -> {
+                        R.id.stiffnessrb2 -> {
                             STIFFNESS = SpringForce.STIFFNESS_MEDIUM
                         }
-                        R.id.stiffnessrb1 -> {
+                        R.id.stiffnessrb3 -> {
                             STIFFNESS = SpringForce.STIFFNESS_LOW
                         }
-                        R.id.stiffnessrb1 -> {
+                        R.id.stiffnessrb4 -> {
                             STIFFNESS = SpringForce.STIFFNESS_VERY_LOW
                         }
                     }

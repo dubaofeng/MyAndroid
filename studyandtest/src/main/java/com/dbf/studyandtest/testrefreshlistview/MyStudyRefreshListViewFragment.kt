@@ -2,6 +2,7 @@ package com.dbf.studyandtest.testrefreshlistview
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -104,10 +105,10 @@ class MyStudyRefreshListViewFragment : Fragment(), OnRefreshListener {
     }
 
     override fun onRefresh() {
-        Handler().postDelayed(Runnable { kotlin.run { } }, 1000)
+        Handler(Looper.getMainLooper()).postDelayed(Runnable { kotlin.run { } }, 1000)
     }
 
     override fun onLoadMoring() {
-        Handler().postDelayed(Runnable { kotlin.run { } }, 1000)
+        Handler(Looper.getMainLooper()).postDelayed(Runnable { kotlin.run { } }, 1000)
     }
 }

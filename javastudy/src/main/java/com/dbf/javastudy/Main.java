@@ -1,9 +1,22 @@
 package com.dbf.javastudy;
 
+
+
+
+import com.dbf.javastudy.reflect.Person;
+import com.dbf.javastudy.serialization.SPerson;
+import com.dbf.studyandtest.proto.PersonInjava;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("main");
 //        maoPaoSort(array);
 //        jianDanXuanZeSort(array);
@@ -12,12 +25,56 @@ public class Main {
 //        sort(array);
 //        mergeSort(array);
 //        int[] test = quickSort(array, 0, array.length - 1);
-        int[] test = heapSort(array);
-        for (int i = 0; i < test.length; i++) {
-            System.out.println("test=" + test[i]);
+//        int[] test = heapSort(array);
+//        for (int i = 0; i < test.length; i++) {
+//            System.out.println("test=" + test[i]);
+//        }
+//        getAvgNumber(new float[]{1,2,3.3f,1.5f});
+
+        PersonInjava person = PersonInjava.newBuilder().setName("张三").setAge(18).build();
+        System.out.println("protobuf="+person.getName()+"--"+person.getAge());
+        //序列化
+        byte[] bs=person.toByteArray();
+        System.out.println("protobuf序列化后="+Arrays.toString(bs));
+        PersonInjava person2=PersonInjava.parseFrom(bs);
+        System.out.println("protobuf反序列化="+person2.getName()+"--"+person2.getAge());
+        System.out.println("\n----------------分割线-------------\n");
+        SPerson sPerson1 =new SPerson();
+        sPerson1.setName("张三");
+        sPerson1.setAge(18);
+        System.out.println("serializable="+ sPerson1.getName()+"--"+ sPerson1.getAge());
+        try {
+//            SerializeableUtils.serialize(person1);
+            ByteArrayOutputStream baos=new ByteArrayOutputStream();
+            ObjectOutputStream oos=new ObjectOutputStream(baos);
+            oos.writeObject(sPerson1);
+            byte[] bs2=  baos.toByteArray();
+            System.out.println("serializable序列化后="+Arrays.toString(bs2));
+            ObjectInputStream ojis=new ObjectInputStream(new ByteArrayInputStream(bs2));
+            SPerson sPerson2 = (SPerson) ojis.readObject();
+            System.out.println("serializable反序列化="+ sPerson2.getName()+"--"+ sPerson2.getAge());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
+
+
+    public static int getAvgNumber(float[] a){
+        int count=a.length;
+        if (count==0) {
+            return 0;
+        }
+        int total=0;
+        for (float v : a) {
+            total+=v;
+        }
+        if (total==0) {
+            return 0;
+        }
+        return total/count;
+
+    };
     public static final int[] array = {10, 4, 6, 1, 0, 2, 9, 3, 5, 8, 7};
 
     //冒泡排序
@@ -286,4 +343,6 @@ public class Main {
         array[i] = array[j];
         array[j] = tamp;
     }
+
+
 }

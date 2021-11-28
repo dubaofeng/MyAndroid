@@ -4,18 +4,15 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".myaidl.BinderAidlServiceActivity">
+        tools:context=".CountDownActivity">
 
-    <ScrollView
+    <TextView
+            android:id="@+id/countText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="68dp"
-            tools:layout_editor_absoluteY="269dp">
+            android:gravity="center"
+            android:textSize="36sp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"></TextView>
 
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

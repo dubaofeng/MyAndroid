@@ -2,6 +2,7 @@ package com.dbf.studyandtest.testrefreshlistview
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,7 +71,7 @@ class ExampleRefreshListViewFragment : Fragment(), OnRefreshListener {
                         "asdasdasd",
                         "asdasdasd"))
             }
-        refreshListView?.adapter = adapter
+        refreshListView.adapter = adapter
         refreshListView.setOnRefreshListener(this)
         MyLog.d(Constant.TAG, log = "ExampleRefreshListViewFragment.onCreateView")
         return view
@@ -81,12 +82,12 @@ class ExampleRefreshListViewFragment : Fragment(), OnRefreshListener {
         MyLog.d(Constant.TAG, log = "ExampleRefreshListViewFragment.onViewCreated")
     }
     override fun onRefresh() {
-        Handler().postDelayed(Runnable { kotlin.run { refreshListView.onRefreshFinish(true, 1) } },
+        Handler(Looper.getMainLooper()).postDelayed(Runnable { kotlin.run { refreshListView.onRefreshFinish(true, 1) } },
             1000)
     }
 
     override fun onLoadMoring() {
-        Handler().postDelayed(Runnable { kotlin.run { refreshListView.onRefreshFinish(true, 1) } },
+        Handler(Looper.getMainLooper()).postDelayed(Runnable { kotlin.run { refreshListView.onRefreshFinish(true, 1) } },
             1000)
     }
 

@@ -16,12 +16,51 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".storage.StorageMainActivity">
+        <activity
+                android:name=".custom_view.CustomViewMainActivity"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+                android:name=".serialization.SerializationMainActivity"
+                android:exported="true">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".generic.GenericActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+
+        </activity>
+        <activity android:name=".my_rx.RxActivity" />
+
+        <service
+                android:name=".recordscreen.RecordScreenService"
+                android:enabled="true"
+                android:exported="false"
+                android:foregroundServiceType="mediaProjection" />
+
+        <activity android:name=".recordscreen.RecordScreenActivity" />
+        <activity android:name=".CountDownActivity" />
+        <activity android:name=".storage.StorageMainActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".custom_view.ShowFrameAnimActivity" />
         <activity android:name=".myretrofit.TestRetrofitActivity" />
@@ -100,11 +139,13 @@
         <activity android:name=".myrecyclerview.RecyclerViewActivity" />
         <activity android:name=".springanimation.SpringAnimationActivity" />
         <activity android:name=".StudyAndTestMainActivity">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
 
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".testrefreshlistview.TestRefreshListViewActivity" />
 

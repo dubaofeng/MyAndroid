@@ -2,6 +2,7 @@ package com.dbf.common.refreshlistview
 
 import android.content.Context
 import android.os.Handler
+import android.os.Looper
 import android.os.Message
 import android.util.AttributeSet
 import android.util.Log
@@ -39,7 +40,7 @@ class MyStudyRefreshListView @JvmOverloads constructor(context: Context,
     var isLoading = false
     var firstVisibleItem = 0
 
-    inner class Myhandler : Handler() {
+    inner class Myhandler : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             when (msg.what) {

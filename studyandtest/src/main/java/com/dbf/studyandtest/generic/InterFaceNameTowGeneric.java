@@ -1,0 +1,9 @@
+package com.dbf.studyandtest.generic;
+
+/**
+ * Created by dbf on 2021/7/3
+ * describe:
+ * @author raden
+ */
+public interface InterFaceNameTowGeneric<T,R> {
+}

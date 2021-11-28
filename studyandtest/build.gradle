@@ -1,7 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'com.google.protobuf'
+A.a()
+apply plugin: MyTestPlugin
 android {
     compileSdkVersion android_config.compileSdkVersion
     buildToolsVersion android_config.buildToolsVersion
@@ -26,21 +28,51 @@ android {
 //     官方使用教程   https://developer.android.google.cn/topic/libraries/view-binding?hl=zh-cn
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
-//加速构建
-    dexOptions {
-        incremental true //如果开启multi-dex, 此句无效
-        preDexLibraries true
-        javaMaxHeapSize "16g" //最主要是这句, 不过改成8g没有更显著的提升
-// jumboMode true
-// threadCount 8 //gradle输就输在了并行上, 都是串行, 增加线程数没鸟用
-// maxProcessCount 8 //com.android.tools.build:gradle:2.0.0
+    sourceSets {
+        main {
+            java{
+                srcDir 'src/main/java'
+            }
+            proto {
+                // In addition to the default 'src/main/proto'
+                srcDir 'src/main/proto'
+            }
+        }}
+////加速构建 gradle8.0将会移除 gradle会自动优化 dex
+//    dexOptions {
+//        incremental true //如果开启multi-dex, 此句无效
+//        preDexLibraries true
+//        javaMaxHeapSize "16g" //最主要是这句, 不过改成8g没有更显著的提升
+//// jumboMode true
+//// threadCount 8 //gradle输就输在了并行上, 都是串行, 增加线程数没鸟用
+//// maxProcessCount 8 //com.android.tools.build:gradle:2.0.0
+//    }
+}
+
+protobuf {
+    //配置protoc编译器
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.8.0'
+    }
+    //这里配置生成目录，编译后会在build的目录下生成对应的java文件
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                remove java
+            }
+            task.builtins {
+                java {}
+            }
+        }
     }
 }
 
+
 dependencies {
+    implementation 'com.google.protobuf:protobuf-java:3.8.0'
     implementation project(":common")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -82,4 +114,9 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'com.github.bumptech.glide:annotations:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    //https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
+    implementation 'com.blankj:utilcode:1.30.6'
+
+    implementation "io.reactivex.rxjava3:rxjava:3.0.13"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 }
